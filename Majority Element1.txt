@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int majority = nums[0];  // Initialize the majority candidate
+        int count = 1;          // Initialize the count of the majority candidate
+        
+        for (int i = 1; i < nums.size(); i++) {
+            if (count == 0) {
+                majority = nums[i];  // Update the majority candidate
+                count = 1;           // Reset the count
+            } else if (nums[i] == majority) {
+                count++;             // Increment the count if the current element is the majority candidate
+            } else {
+                count--;             // Decrement the count if the current element is not the majority candidate
+            }
+        }
+        
+        return majority;
+    }
+};
